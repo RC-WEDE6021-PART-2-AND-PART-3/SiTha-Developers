@@ -1,0 +1,5 @@
+John	Doe	j.doe@abc.co.za	johndoe	482c811da5d5b4bc6d497ffa98491e38	buyer	0	verified
+Jane	Smith	j.smith@abc.co.za	janesmith	482c811da5d5b4bc6d497ffa98491e38	buyer	0	verified
+Thabo	Nkosi	t.nkosi@abc.co.za	thabonkosi	482c811da5d5b4bc6d497ffa98491e38	seller	1	verified
+Lerato	Dlamini	l.dlamini@abc.co.za	leratod	482c811da5d5b4bc6d497ffa98491e38	buyer	0	pending
+Admin	User	admin@pastimes.co.za	admin	482c811da5d5b4bc6d497ffa98491e38	admin	0	verified
