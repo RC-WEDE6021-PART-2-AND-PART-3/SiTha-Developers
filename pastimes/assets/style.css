@@ -29,10 +29,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 64px;
+    height: 72px;
     position: sticky;
     top: 0;
     z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
 .navbar .logo {
@@ -97,20 +98,46 @@ body {
 }
 
 .nav-icon {
-    width: 36px;
-    height: 36px;
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 22px;
     color: #333;
     text-decoration: none;
+    position: relative;
+    transition: background 0.2s;
 }
 
-.nav-icon:hover { background: #f5f5f5; }
+.nav-icon:hover {
+    background: #fff0f5;
+    color: #d4537e;
+}
 
+/* Tooltip on hover */
+.nav-icon::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -28px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    font-size: 11px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.nav-icon:hover::after {
+    opacity: 1;
+}
 /* ── BUTTONS ── */
 .btn {
     display: inline-block;

@@ -29,13 +29,34 @@ $user   = mysqli_fetch_assoc($result);
 </head>
 <body>
 
+<!-- Announcement bar -->
+<div class="announcement-bar">Free delivery on orders over R500 🚚</div>
+
+<!-- Navbar -->
 <nav class="navbar">
     <a href="index.php" class="logo">Pastimes</a>
-    <div>
-        <a href="index.php">Home</a>
+    <div class="nav-links">
+        <a href="shop.php">Shop</a>
+        <a href="shop.php">Dresses</a>
+        <a href="shop.php">Tops</a>
+        <a href="shop.php">Jeans</a>
+        <a href="shop.php">Shoes</a>
     </div>
-    <div>
-        <a href="logout.php" class="btn btn-pink">Sign Out</a>
+    <div class="search-bar">
+        <span>🔍</span>
+        <input type="text" placeholder="Search for brands, styles...">
+    </div>
+    <div class="nav-right">
+        <a href="seller.php" class="btn btn-pink">Sell Now</a>
+        <a href="shop.php" class="nav-icon" title="Wishlist">♡</a>
+        <a href="cart.php" class="nav-icon" title="Cart">🛒</a>
+        <a href="orders.php" class="nav-icon" title="My Orders">📦</a>
+        <?php if(isset($_SESSION['username'])): ?>
+            <a href="profile.php" class="nav-icon" title="My Profile">👤</a>
+            <a href="logout.php" class="btn btn-outline" style="font-size:13px; padding:7px 14px;">Sign Out</a>
+        <?php else: ?>
+            <a href="login.php" class="nav-icon" title="Login">👤</a>
+        <?php endif; ?>
     </div>
 </nav>
 

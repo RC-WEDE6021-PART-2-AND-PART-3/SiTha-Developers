@@ -1,17 +1,19 @@
 <?php
-// loadClothingStore.php - Creates all tables WITHOUT deleting clothes data
+// loadClothingStore.php - Creates all tables, keeps clothes data safe
 $conn = mysqli_connect("localhost", "root", "", "ClothingStore");
+if(!$conn){ die("Connection failed: " . mysqli_connect_error()); }
 
-if(!$conn){
-    die("Connection failed: " . mysqli_connect_error());
-}
+// Disable foreign key checks so tables can be dropped safely
+mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 0");
 
-// Only drop user-related tables, NEVER tblClothes
+// Drop only user-related tables, NEVER tblClothes
 $tables = ["tblOrderItems", "tblCart", "tblMessages", "tblAorder", "tblAdmin", "tblUser"];
-
 foreach($tables as $table){
     mysqli_query($conn, "DROP TABLE IF EXISTS `$table`");
 }
+
+// Re-enable foreign key checks
+mysqli_query($conn, "SET FOREIGN_KEY_CHECKS = 1");
 echo "✅ Tables dropped (clothes kept safe).<br>";
 
 // tblUser
@@ -38,7 +40,7 @@ mysqli_query($conn, "CREATE TABLE IF NOT EXISTS tblAdmin (
 )");
 echo "✅ tblAdmin created.<br>";
 
-// tblClothes - only create if it doesn't exist, never drop it
+// tblClothes - only create if it doesnt exist, never drop it
 mysqli_query($conn, "CREATE TABLE IF NOT EXISTS tblClothes (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -52,7 +54,7 @@ mysqli_query($conn, "CREATE TABLE IF NOT EXISTS tblClothes (
     image_url VARCHAR(255),
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 )");
-echo "✅ tblClothes created (existing data kept).<br>";
+echo "✅ tblClothes safe.<br>";
 
 // tblAorder
 mysqli_query($conn, "CREATE TABLE IF NOT EXISTS tblAorder (

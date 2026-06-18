@@ -7,7 +7,7 @@ if(!$conn){
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Redirect if not admin
+// go back if not admin
 if(!isset($_SESSION['username']) || $_SESSION['role'] != 'admin'){
     header("Location: ../login.php");
     exit();
@@ -15,8 +15,8 @@ if(!isset($_SESSION['username']) || $_SESSION['role'] != 'admin'){
 
 $message = "";
 
-// Add new user
-// Add new user
+// Adding a new user
+
 if(isset($_POST['add_user'])){
     $first    = $_POST['first_name'];
     $last     = $_POST['last_name'];
@@ -115,12 +115,16 @@ $result = mysqli_query($conn, "SELECT * FROM tblUser ORDER BY created_at DESC");
 
 <nav class="navbar">
     <a href="../index.php" class="logo">Pastimes</a>
-    <div>
-        <span style="font-size:14px; color:#d4537e;">
-            Admin: <?php echo $_SESSION['username']; ?>
-        </span>
+    <div class="nav-links">
+        <a href="dashboard.php" style="color:#d4537e; font-weight:700;">Users</a>
+        <a href="clothes.php">Clothes</a>
+        <a href="messages.php">Messages</a>
+        <a href="reports.php">Reports</a>
     </div>
-    <a href="../logout.php" class="btn btn-pink">Sign Out</a>
+    <div class="nav-right">
+        <span style="font-size:14px; color:#d4537e;">Admin: <?php echo $_SESSION['username']; ?></span>
+        <a href="../logout.php" class="btn btn-pink">Sign Out</a>
+    </div>
 </nav>
 
 <div class="admin-container">
@@ -287,7 +291,7 @@ $result = mysqli_query($conn, "SELECT * FROM tblUser ORDER BY created_at DESC");
 </div>
 
 <footer>
-    <p style="text-align:center; padding:30px; color:#aaa; font-size:13px;">© 2025 Pastimes</p>
+    <p style="text-align:center; padding:30px; color:#aaa; font-size:13px;">© 2026 Pastimes</p>
 </footer>
 
 <script>
