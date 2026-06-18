@@ -1,17 +1,44 @@
-WEDE6021 Part 2
+# Pastimes – Pre-loved Clothing Store
+## WEDE6021 Final POE
 
-# SiTha-Developers
-Sibongakonke Singo- ST10451618
-Thabile Ramushu- ST10444757
+### Group Members:
+- Sibongakonke Singo – ST10451618
+- Thabile Ramushu – ST10444757
 
-### How to run:
-1. Place the pastimes folder in C:\xampp\htdocs\
-2. Start Apache and MySQL in XAMPP
-3. Create a database called ClothingStore in phpMyAdmin
-4. Run: http://localhost/pastimes/loadClothingStore.php
-5. Run: http://localhost/pastimes/createTable.php
-6. Visit: http://localhost/pastimes/index.php
+### Software Required:
+- XAMPP (Apache + MySQL)
+- PHP 8.x
+- Web browser
 
-### Admin Login:
-- Username: admin@pastimes.co.za/ admin
-- Password: password123
+### How to Run:
+1. Install XAMPP from https://www.apachefriends.org
+2. Place the pastimes folder in C:\xampp\htdocs\
+3. Start Apache and MySQL in XAMPP Control Panel
+4. Open phpMyAdmin at http://localhost/phpmyadmin
+5. Create a database called ClothingStore
+6. Run: http://localhost/pastimes/loadClothingStore.php
+7. Run: http://localhost/pastimes/createTable.php
+8. Visit: http://localhost/pastimes/index.php
+
+### Database Setup:
+- Database name: ClothingStore
+- SQL script: myClothingStore.sql (included in project folder)
+- Import via phpMyAdmin if needed
+
+### Login Credentials:
+| Role  | Username              | Password    |
+|-------|-----------------------|-------------|
+| Admin | admin@pastimes.co.za  | password123 |
+| Buyer | johndoe               | password123 |
+| Buyer | janesmith             | password123 |
+| Seller| thabonkosi            | password123 |
+
+### Features:
+- User registration with admin verification
+- Login with MD5 password hashing
+- Shopping cart with add, edit, remove
+- Checkout with order reference number
+- Purchase history
+- Admin dashboard - manage users and clothing
+- Seller listing page
+- Admin messaging system
