@@ -5,9 +5,6 @@
 - Sibongakonke Singo – ST10451618
 - Thabile Ramushu – ST10444757
 
-### Video Presentation:
-[Click here to watch our video](YOUR VIDEO LINK HERE)
-
 ### Software Required:
 - XAMPP (Apache + MySQL)
 - PHP 8.x
